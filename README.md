@@ -1,6 +1,6 @@
 # fixtools
 
-Python tools for analyzing/ sharing FIX messages with ease and simplicity
+Python tools for analyzing/ sharing FIX messages with ease and simplicity.
 
 Comparing FIX message(s) from any.application.log
 
@@ -35,3 +35,13 @@ Template-based dummy message generation
 ft simulate <template> 
 ft simulate templates/Execution.template 
 ```
+
+#Installation
+
+```sh
+git clone https://github.com/maheshsingapore/fixtools.git
+set PATH=$PATH:.
+```
+
+#Requirements
+Python 2.6.6 and above
