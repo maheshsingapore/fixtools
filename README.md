@@ -1,26 +1,37 @@
 # fixtools
-python tools for analyzing fix messages
 
-<any fix feed>| ft compare 
-<any fix feed>| ft compare [-a| exact tag numbers to compare] 
-     Eg.: ft extract '3=' any.application.log| ft compare 
-     Eg.: less -f any.fix.feed| ft compare 6 
-     Eg.: less -f any.fix.feed| ft compare -a 
+Python tools for analyzing/ sharing FIX messages with ease and simplicity
 
+Comparing FIX message(s) from any.application.log
+
+```sh
+ft extract '3=' any.application.log| ft compare 
+less -f any.fix.feed| ft compare 6 
+less -f any.fix.feed| ft compare -a 
+```
+FIX message extraction from any.application.log
+```sh
 ft extract <filter condition> <log file> 
-     E.g.: ft extract '3=' any.application.log 
-     E.g.: less -f any.application.log| ft extract '3=' 
-
+ft extract '3=' any.application.log 
+less -f any.application.log| ft extract '3=' 
+```
+Expose folder over http for sharing
+```sh
 ft serve [path] [port] 
-     Eg.: ft serve 
-     Eg.: ft serve templates 
-     Eg.: ft serve ~ 9999 
-
-<any fix feed>| ft tabulate <list of space-separated tags to print as a table> 
-     Eg.: ft extract '3=' any.application.log| ft tabulate 3 37  4 
-     Eg.: less -f any.fix.feed| ft tabulate 3 37  4 
-     Eg.: less -f any.fix.feed| ft tabulate --csv 3 37  4 
-     Eg.: less -f any.fix.feed| ft tabulate -c 3 37  4 
-
+ft serve 
+ft serve folderToExposeOverHTTP/ 
+ft serve ~ 9999 
+```
+Pretty-print and tabulated tags from any.fix.feed
+```sh
+less -f any.fix.feed| ft tabulate <list of space-separated tags to print as a table> 
+ft extract '3=' any.application.log| ft tabulate 3 37  4 
+less -f any.fix.feed| ft tabulate 3 37  4 
+less -f any.fix.feed| ft tabulate --csv 3 37  4 
+less -f any.fix.feed| ft tabulate -c 3 37  4 
+```
+Template-based dummy message generation
+```sh
 ft simulate <template> 
-     E.g.: ft simulate templates/Execution.template 
+ft simulate templates/Execution.template 
+```
