@@ -1,13 +1,19 @@
 #!/usr/bin/env python
-import subprocess, sys, os, glob
+import glob
+import os
+import sys
+
+
 def usage():
     for m in glob.glob('*.py'):
         fname, fext = os.path.splitext(m)
-        if (fname != "ft"):
+        if fname != "ft":
             command = __import__(fname)
             print "-" * 80
             command.usage()
     print "-" * 80
+
+
 def main():
     if len(sys.argv) < 2:
         usage()
@@ -19,5 +25,7 @@ def main():
         command.main()
     else:
         usage()
+
+
 if __name__ == "__main__":
     main()
